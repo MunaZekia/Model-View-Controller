@@ -1,0 +1,11 @@
+{{#each posts as |post|}}
+<div class="card m-3">
+    <div class="card-header">
+        <h3><a href="/post/{{post.id}}">{{post.title}}</a></h3>
+    </div>
+
+    <div class="card-body">
+        <p>{{post.content}}</p>
+    </div>
+</div> 
+{{/each}}
