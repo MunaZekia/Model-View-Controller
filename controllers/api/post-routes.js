@@ -13,6 +13,8 @@ router.get('/:id/comments',withAuth, async (req, res) => {
             }
         });
         const comments = commentData.map((comment) => comment.get({ plain: true }));
+      
+        
         res.render('singlepost', {
             post,
             comments,
@@ -23,6 +25,24 @@ router.get('/:id/comments',withAuth, async (req, res) => {
         console.log(err);
         res.status(500).json(err);
     }
+});
+
+router.post('/', withAuth, async (req, res) => {
+    console.log("did i get the data from the form?",req.body);
+    //this is where I created the post
+    try {
+        const newpost = await Post.create({
+            title: req.body.title,
+            content: req.body.content,
+            user_id: req.session.user_id
+
+        });
+        res.status(200).json(newpost);
+    }
+    catch (err) {
+        res.status(400).json(err);
+    }
+    
 });
 
 module.exports = router;
