@@ -32,7 +32,7 @@ router.post('/signup', async (req, res) => {
         req.session.save(() => {
             req.session.user_id = userData.id;
             req.session.logged_in = true;
-             res.redirect('/dashboard');
+    
              
 
              // this is where I want to redirect to the dashboard
