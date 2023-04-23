@@ -15,8 +15,8 @@
       {{#each post.comments as |comment|}}
         {{comment.comment_text}}
         <br />
-        {{comment.user.username}} {{comment.createdAt}}
-        {{comment.formattedDate}}
+        {{comment.user.username}} {{format_date comment.createdAt}}
+        {{!-- {{comment.formattedDate}} --}}
       {{/each}}
        {{/if}}
       <form id = "commentform">
