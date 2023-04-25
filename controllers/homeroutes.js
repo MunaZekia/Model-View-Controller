@@ -43,6 +43,7 @@ router.get("/login", (req, res) => {
 });
 router.get("/post/:id", withAuth, async (req, res) => {
   try {
+    console.log("test");
     const postData = await Post.findByPk(req.params.id, {
       include: [
         {
@@ -70,6 +71,7 @@ router.get("/post/:id", withAuth, async (req, res) => {
     //     c.formattedDate = dayjs(c.date_created).format('MM/DD/YYYY');
     //     newComments.push(c);
     // });
+
 
     res.render("singlepost", {
       post,

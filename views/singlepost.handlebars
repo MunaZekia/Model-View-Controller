@@ -15,7 +15,7 @@
       {{#each post.comments as |comment|}}
         {{comment.comment_text}}
         <br />
-        {{comment.user.username}} {{format_date comment.createdAt}}
+        {{comment.user.username}} {{format_date comment.date_created}}
         {{!-- {{comment.formattedDate}} --}}
       {{/each}}
        {{/if}}
